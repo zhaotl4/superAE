@@ -140,8 +140,8 @@ def saveVocabulary(name, vocab, file):
 
 
 def makeData(srcFile, tgtFile, srcDicts, tgtDicts, sort=False):
-    src, tgt = [], []
-    raw_src, raw_tgt = [], []
+    src, tgt = [], [] # word -> idx
+    raw_src, raw_tgt = [], [] # the real word
     sizes = []
     count, ignored = 0, 0
 
