@@ -114,6 +114,7 @@ class Dict(object):
         for i in self.special:
             newDict.addSpecial(self.idxToLabel[i])
 
+        idx = idx.numpy() # 遍历的时候不支持张量 see this issue https://github.com/lancopku/superAE/issues/10
         for i in idx[:size]:
             newDict.add(self.idxToLabel[i])
 

@@ -169,6 +169,7 @@ else:
     pretrain_embed = None
 #model
 print('building model...\n')
+# model is a Sqe2Seq model
 model = getattr(models, opt.model)(config, config.src_vocab, config.tgt_vocab, use_cuda,
                        w2v=pretrain_embed, score_fn=opt.score, weight=opt.weight, pretrain_updates=opt.update,
                                    extend_vocab_size=tgt_vocab.size()-config.tgt_vocab, device_ids=opt.gpus)

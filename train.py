@@ -9,7 +9,7 @@ from torch.autograd import Variable
 import torch.utils.data
 import torch.backends.cudnn as cudnn
 from torch.nn.utils.rnn import pack_padded_sequence as pack
-from torch.utils.serialization import load_lua
+# from torch.utils.serialization import load_lua
 import models
 import data.dataloader as dataloader
 import data.utils as utils
@@ -26,7 +26,7 @@ import codecs
 
 #config
 parser = argparse.ArgumentParser(description='train.py')
-parser.add_argument('-config', default='default.yaml', type=str,
+parser.add_argument('-config', default='lcsts.yaml', type=str,
                     help="config file")
 parser.add_argument('-gpus', default=[], nargs='+', type=int,
                     help="Use CUDA on the listed devices.")

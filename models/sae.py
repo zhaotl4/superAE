@@ -26,7 +26,7 @@ class sae(nn.Module):
         self.encoder = models.rnn_encoder(config, src_vocab_size, embedding=src_embedding)
 
         if config.shared_vocab == False:
-            self.decoder_s2s = models.rnn_decoder(config, tgt_vocab_size, embedding=tgt_embedding, score_fn=score_fn)
+            self.decoder_s2s = models.rnn_decoder(config, tgt_vocab_size, embedding=tgt_embedding, score_fn=score_fn) # s2s is the sqe2sqe
             self.decoder_ae = models.rnn_decoder(config, src_vocab_size, embedding=self.encoder.embedding, score_fn=score_fn)
         else:
             self.decoder_s2s = models.rnn_decoder(config, tgt_vocab_size, embedding=self.encoder.embedding, score_fn=score_fn)

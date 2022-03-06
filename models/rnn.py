@@ -301,7 +301,7 @@ class copy_rnn_encoder(nn.Module):
 
     def forward(self, input, lengths):
 
-        mask = torch.ge(input, self.vocab_size).float()
+        mask = torch.ge(input, self.vocab_size).float() # torch.ge(a,b)比较a，b的大小，a为张量，b可以为和a相同形状的张量，也可以为一个常数 -> https://blog.csdn.net/qq_40178291/article/details/100798984
         input_in_vocab = Variable(torch.zeros(input.size()).fill_(dict.UNK)).cuda().long()
         input_in_vocab = mask.long() * input_in_vocab + (1 - mask).long() * input
 
