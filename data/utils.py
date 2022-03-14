@@ -66,11 +66,16 @@ def eval_rouge(reference, candidate, log_path):
     ref_file = ref_dir+'reference'
     cand_file = cand_dir+'candidate'
 
+    # print('candianate: ',candidate)
     for i in range(len(reference)):
         with codecs.open(ref_file+str(i), 'w', 'utf-8') as f:
             f.write("".join(reference[i]).replace(" <\s> ", "\n")+'\n')
         with codecs.open(cand_file+str(i), 'w', 'utf-8') as f:
-            f.write("".join(candidate[i]).replace(" <\s> ", "\n")+'\n')
+            if len(candidate[i]) > 0: # need change to skip None
+                print('write candindate: ',candidate[i])
+                if candidate[i][0]==None:
+                    continue
+                f.write("".join(candidate[i]).replace(" <\s> ", "\n")+'\n')
 
     reference_set = [[ref_file+str(i)] for i in range(len(reference))]
     candidate_set = [cand_file+str(i) for i in range(len(candidate))]

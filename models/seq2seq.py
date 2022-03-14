@@ -86,7 +86,7 @@ class seq2seq(nn.Module):
         loss.backward()
         optim.step()
 
-        return loss.data[0], num_total, num_correct
+        return loss.item(), num_total, num_correct
 
     def sample(self, src, src_len, num_oovs=0):
 

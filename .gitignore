@@ -4,3 +4,4 @@
 *.pt
 *.py[cod]
 *.txt
+data/lcsts/*

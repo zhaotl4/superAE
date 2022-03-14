@@ -187,6 +187,12 @@ def cross_entropy_loss(hidden_outputs, decoder, targets, criterion, config, sim_
         scores = outputs
     loss = criterion(scores, targets.view(-1)) + sim_score
     pred = scores.max(1)[1]
+    pred = pred.view(targets.data.shape)
+    # print('pred shape: ',pred.shape)
+    # print('target.data shape :',targets.data.shape)
+    # print('pred data: ',pred[:30])
+    # print('target data: ',targets.data[:2])
+
     num_correct = pred.data.eq(targets.data).masked_select(targets.ne(dict.PAD).data).sum()
     num_total = targets.ne(dict.PAD).data.sum()
     #loss.div(num_total).backward()
