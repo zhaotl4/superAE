@@ -77,7 +77,7 @@ class sae(nn.Module):
         loss_s2s, num_total, num_correct = self.compute_loss(outputs, self.decoder_s2s, targets, self.criterion, loss_fn, updates)
         return loss_s2s, state_src, num_total, num_correct
 
-    def ae_loss(self, src, src_len, loss_fn, updates):
+    def ae_loss(self, src, src_len, loss_fn, updates): # the src and tgt of AE is the same
         if src.size(0) > 50:
             return 0, None
         outputs, targets, state_tgt = self(src, src_len, src[1:], src_len, use_s2s=False)

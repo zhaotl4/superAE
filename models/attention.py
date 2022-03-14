@@ -18,7 +18,10 @@ class luong_attention(nn.Module):
     def init_context(self, context):
         self.context = context
         batch_size, time, hidden_size = context.size()
-        self.accum_weights = Variable(torch.ones(batch_size, time)).cuda()
+        self.accum_weights = Variable(torch.ones(batch_size, time))
+        if torch.cuda.is_available():
+            self.accum_weights = Variable(torch.ones(batch_size, time)).cuda()
+
 
     def forward(self, h, x, context=None, temporal=False):
         gamma_h = self.linear_in(h).unsqueeze(2)    # batch * size * 1

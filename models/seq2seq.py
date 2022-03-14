@@ -81,7 +81,7 @@ class seq2seq(nn.Module):
             src_len = src_len.cuda()
             tgt_len = tgt_len.cuda()
 
-        outputs, targets = self(src, src_len, tgt, tgt_len, num_oovs)
+        outputs, targets = self(src, src_len, tgt, tgt_len, num_oovs) # call forward(src, src_len, tgt, tgt_len, num_oovs)
         loss, num_total, num_correct = self.compute_loss(outputs, targets, loss_fn, updates)
         loss.backward()
         optim.step()

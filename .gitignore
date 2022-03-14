@@ -1,0 +1,6 @@
+*.src
+*.tgt
+*.dict
+*.pt
+*.py[cod]
+*.txt
