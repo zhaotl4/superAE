@@ -73,7 +73,7 @@ def eval_rouge(reference, candidate, log_path):
         with codecs.open(cand_file+str(i), 'w', 'utf-8') as f:
             if len(candidate[i]) > 0: # need change to skip None
                 print('write candindate: ',candidate[i])
-                if candidate[i][0]==None:
+                if candidate[i][0]==None: # can't write anything
                     continue
                 f.write("".join(candidate[i]).replace(" <\s> ", "\n")+'\n')
 

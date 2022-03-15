@@ -5,3 +5,4 @@
 *.py[cod]
 *.txt
 data/lcsts/*
+data/script/temp.xml

@@ -275,7 +275,7 @@ class rnn_decoder(nn.Module):
         return sample_ids, (outputs, attns)
 
     def sample_one(self, input, state, contexts, src=None, num_oovs=0):
-        input = torch.tensor(input).long() # need change to cuda 
+        # input = torch.tensor(input).long() # need change to cuda 
         emb = self.embedding(input)
         output, state = self.rnn(emb, state)
         hidden, attn_weigths = self.attention(output, emb, contexts)
